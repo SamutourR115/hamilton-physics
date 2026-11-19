@@ -85,7 +85,7 @@ ctest --test-dir build
 
 ## AI Usage
 
-I use AI as a learning assistant: to explain concepts, discuss design trade-offs and review documentation. This README was drafted with AI assistance. All source code in this repository is written by me.
+I use AI as a learning assistant: to explain concepts, discuss design trade-offs and review documentation.All source code in this repository is written by me.
 
 ---
 

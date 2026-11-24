@@ -1,0 +1,17 @@
+include(FetchContent)
+
+FetchContent_Declare(
+    raylib
+    GIT_REPOSITORY https://github.com/raysan5/raylib.git
+    GIT_TAG        5.5
+)
+set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)   # ne compile pas les exemples de raylib
+FetchContent_MakeAvailable(raylib)
+
+add_executable(viewer main.cpp)
+
+target_link_libraries(viewer
+    PRIVATE
+        hamilton::hamilton
+        raylib
+)

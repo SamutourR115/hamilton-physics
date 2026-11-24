@@ -1,0 +1,27 @@
+include(FetchContent)
+
+# GoogleTest : téléchargé automatiquement à la configuration
+FetchContent_Declare(
+    googletest
+    URL https://github.com/google/googletest/archive/refs/tags/v1.15.2.zip
+)
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)  # utile seulement sous Windows
+FetchContent_MakeAvailable(googletest)
+
+# Eigen : installé sur ta machine (macOS : brew install eigen)
+find_package(Eigen3 REQUIRED NO_MODULE)
+
+add_executable(hamilton_tests
+    math/test_vec3.cpp
+    # Ajoute les autres fichiers de test au fur et à mesure
+)
+
+target_link_libraries(hamilton_tests
+    PRIVATE
+        hamilton::hamilton
+        GTest::gtest_main
+        Eigen3::Eigen
+)
+
+include(GoogleTest)
+gtest_discover_tests(hamilton_tests)
